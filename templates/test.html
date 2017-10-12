@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for row in server_list %}
+            <li>{{ row.hostname }}={{ row.server_status_id_name }}</li>
+        {% endfor %}
+
+
+    </ul>
+
+</body>
+</html>

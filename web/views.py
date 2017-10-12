@@ -52,6 +52,12 @@ def server_json(request):
             'text': {'tpl': '{a1}', 'kwargs': {'a1': '@business_unit__name'}},
         },
         {
+            'q': 'server_status_id',
+            'title': '服务器状态',
+            'display': True,
+            'text': {'tpl': '{a1}', 'kwargs': {'a1': '@@status_choices'}},
+        },
+        {
             'q': None,
             'title': '操作',
             'display': True,
@@ -69,7 +75,10 @@ def server_json(request):
 
     response = {
         'data_list':list(server_list),
-        'table_config':table_config
+        'table_config':table_config,
+        'global_choices_dict':{
+            'status_choices':models.Server.server_status_choices
+        }
     }
     return JsonResponse(response)
 
@@ -140,10 +149,41 @@ def disk_json(request):
     }
     return JsonResponse(response)
 
+def foo1(server_list):
+    for row in server_list:
+        for item in models.Server.server_status_choices:
+            if item[0] == row['server_status_id']:
+                row['server_status_id_name'] = item[1]
+                break
+            yield row
 
-# def test(request):
-#     server_list = models.Server.objects.all()
-#     for row in server_list:
-#         print(row.id,row.hostname,row.business_unit.name,'====',row.server_status_id,row.get_server_status_id_display())
-#
-#     return render(request,'test.html',{''})
+def test(request):
+    '''
+     server_status_choices = (
+        (1, '上架'),
+        (2, '在线'),
+        (3, '离线'),
+        (4, '下架'),
+    )
+
+    :param request:
+    :return:
+    '''
+    #第一种方式
+    #只要取到的是对象才可以使用row.get_server_status_id_display()这种
+    # server_list = models.Server.objects.all()
+    # for row in server_list:
+    #     print(row.id,row.hostname,row.business_unit.name,'====',row.server_status_id,row.get_server_status_id_display())
+
+    #第二种方式
+    # server_list = models.Server.objects.all().values('hostname','server_status_id')
+    # for row in server_list:
+    #     for item in models.Server.server_status_choices:
+    #         if item[0] == row['server_status_id']:
+    #             row['server_status_id_name'] = item[1]
+    #             break
+
+    #第三种方式 使用yield生成器,推荐使用，执行次数少
+    server_list = models.Server.objects.all().values('hostname', 'server_status_id')
+
+    return render(request,'test.html',{'server_list':foo1(server_list)})

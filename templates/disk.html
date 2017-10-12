@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css" />
+    <style>
+        .loading{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: white;
+            opacity: 0.4;
+            z-index: 1000;
+        }
+        .loading .img{
+            height: 32px;
+            width: 32px;
+            background: url('/static/img/loading.gif');
+            position: fixed;
+            left: 50%;
+            top:50%;
+            margin-left: -16px;
+            margin-top: -16px;
+            z-index: 1001;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>硬盘列表</h1>
+    <table class="table table-bordered">
+        <thead id="tHead">
+            <tr>
+
+            </tr>
+        </thead>
+        <tbody id="tBody">
+
+        </tbody>
+    </table>
+
+</div>
+
+<div id="loading" class="loading hide">
+    <div class="img"></div>
+</div>
+<script src="/static/js/jquery-3.2.1.js"></script>
+<script src="/static/js/nb-list.js"></script>
+<script>
+    $.nBList('/disk_json.html');
+
+</script>
+
+</body>
+</html>

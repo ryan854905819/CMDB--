@@ -154,15 +154,24 @@
             'title': '选择',
              'display': True,
             'text': {'tpl': '<input type="checkbox" value="{nid}" />', 'kwargs': {'nid': '@id'}},
+            'attr':{'k':'v','edit':'true','od':'@id'},
         },
             */
+
             $.each(table_config,function (kk,vv) {
-
+                var td = document.createElement('td');
+                var format_dict = {};  //用来存放text格式化好的数据
+                $.each(vv.attr,function (akk,avv) {
+                    if(avv[0] == "@") {
+                        var name = avv.substring(1,avv.length);
+                         avv= row_dict[name];
+                    }
+                    td.setAttribute(akk,avv);
+                });
                 if (vv.display) {
-                        var td = document.createElement('td');
+                        // var td = document.createElement('td');
                         // td.innerHTML = row_dict[vv.q];   //vv.q // None,hostname,sn,os_platform
-                        var format_dict = {};  //用来存放格式化好的数据
-
+                        // var format_dict = {};  //用来存放格式化好的数据
                         //vv.text.kwargs    就是这种字典{'nid': '@id'} ，kkk那的字典key，vvv拿字典的值
                         $.each(vv.text.kwargs, function (kkk, vvv) {
                             if(vvv.substring(0,2) == "@@"){
@@ -184,7 +193,6 @@
 
                         //字符串进行格式化，把里面{xxx}占位符全部替换成出来，并且赋值给td标签
                         td.innerHTML = vv.text.tpl.format(format_dict);
-
                         $(tr).append(td);
                 }
             });

@@ -14,6 +14,7 @@ def server_json(request):
             'title': '选择',
             'display': True,
             'text': {'tpl': '<input type="checkbox" value="{nid}" />', 'kwargs': {'nid': '@id'}},
+            'attr':{'k':'v','edit':'true','od':'@id'},
         },
         {
             'q': 'id',

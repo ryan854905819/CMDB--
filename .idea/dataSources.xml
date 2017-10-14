@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3102777478">
-    <data-source source="LOCAL" name="db" uuid="907b3222-ec75-4a62-90af-5df4a78f77c7">
+  <component name="DataSourceManagerImpl" format="xml" hash="3515452457">
+    <data-source source="LOCAL" name="db" uuid="1b100e72-cfe6-43be-8754-8f1f4113d494">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
@@ -10,10 +10,10 @@
       <jdbc-url>jdbc:sqlite:E:\py_code\py_s5\django\auto_server\db.sqlite3</jdbc-url>
       <libraries>
         <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.16.1.jar</url>
         </library>
         <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.16.1.jar</url>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
         </library>
       </libraries>
     </data-source>

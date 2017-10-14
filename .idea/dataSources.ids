@@ -38,7 +38,7 @@
       </column>
       <column id="28" parent="2" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(80)(0,-1)|12</data-type>
+        <data-type>VARCHAR(80) (0,-1)|12</data-type>
       </column>
       <index id="29" parent="2" name="sqlite_autoindex_auth_group_1">
         <name-surrogate>1</name-surrogate>
@@ -100,11 +100,11 @@ permission_id</columns>
       </column>
       <column id="40" parent="4" name="codename">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(100)(0,-1)|12</data-type>
+        <data-type>VARCHAR(100) (0,-1)|12</data-type>
       </column>
       <column id="41" parent="4" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(255)(0,-1)|12</data-type>
+        <data-type>VARCHAR(255) (0,-1)|12</data-type>
       </column>
       <index id="42" parent="4" name="auth_permission_content_type_id_codename_01ab375a_uniq">
         <columns>content_type_id
@@ -131,7 +131,7 @@ codename</columns>
       </column>
       <column id="46" parent="5" name="password">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(128)(0,-1)|12</data-type>
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
       </column>
       <column id="47" parent="5" name="last_login">
         <data-type>DATETIME(0,-1)|12</data-type>
@@ -142,15 +142,15 @@ codename</columns>
       </column>
       <column id="49" parent="5" name="first_name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(30)(0,-1)|12</data-type>
+        <data-type>VARCHAR(30) (0,-1)|12</data-type>
       </column>
       <column id="50" parent="5" name="last_name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(30)(0,-1)|12</data-type>
+        <data-type>VARCHAR(30) (0,-1)|12</data-type>
       </column>
       <column id="51" parent="5" name="email">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(254)(0,-1)|12</data-type>
+        <data-type>VARCHAR(254) (0,-1)|12</data-type>
       </column>
       <column id="52" parent="5" name="is_staff">
         <mandatory>1</mandatory>
@@ -166,7 +166,7 @@ codename</columns>
       </column>
       <column id="55" parent="5" name="username">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(150)(0,-1)|12</data-type>
+        <data-type>VARCHAR(150) (0,-1)|12</data-type>
       </column>
       <index id="56" parent="5" name="sqlite_autoindex_auth_user_1">
         <name-surrogate>1</name-surrogate>
@@ -267,7 +267,7 @@ permission_id</columns>
       </column>
       <column id="74" parent="8" name="object_repr">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(200)(0,-1)|12</data-type>
+        <data-type>VARCHAR(200) (0,-1)|12</data-type>
       </column>
       <column id="75" parent="8" name="action_flag">
         <mandatory>1</mandatory>
@@ -316,11 +316,11 @@ permission_id</columns>
       </column>
       <column id="84" parent="9" name="app_label">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(100)(0,-1)|12</data-type>
+        <data-type>VARCHAR(100) (0,-1)|12</data-type>
       </column>
       <column id="85" parent="9" name="model">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(100)(0,-1)|12</data-type>
+        <data-type>VARCHAR(100) (0,-1)|12</data-type>
       </column>
       <index id="86" parent="9" name="django_content_type_app_label_model_76bd3d3b_uniq">
         <columns>app_label
@@ -338,11 +338,11 @@ model</columns>
       </column>
       <column id="89" parent="10" name="app">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(255)(0,-1)|12</data-type>
+        <data-type>VARCHAR(255) (0,-1)|12</data-type>
       </column>
       <column id="90" parent="10" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(255)(0,-1)|12</data-type>
+        <data-type>VARCHAR(255) (0,-1)|12</data-type>
       </column>
       <column id="91" parent="10" name="applied">
         <mandatory>1</mandatory>
@@ -354,7 +354,7 @@ model</columns>
       </key>
       <column id="93" parent="11" name="session_key">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(40)(0,-1)|12</data-type>
+        <data-type>VARCHAR(40) (0,-1)|12</data-type>
       </column>
       <column id="94" parent="11" name="session_data">
         <mandatory>1</mandatory>
@@ -379,11 +379,11 @@ model</columns>
       </column>
       <column id="99" parent="12" name="username">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="100" parent="12" name="password">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="101" parent="12" name="user_id">
         <mandatory>1</mandatory>
@@ -408,7 +408,7 @@ model</columns>
       </column>
       <column id="105" parent="13" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(64)(0,-1)|12</data-type>
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
       </column>
       <column id="106" parent="13" name="contact_id">
         <mandatory>1</mandatory>
@@ -452,11 +452,11 @@ model</columns>
       </column>
       <column id="113" parent="14" name="slot">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(8)(0,-1)|12</data-type>
+        <data-type>VARCHAR(8) (0,-1)|12</data-type>
       </column>
       <column id="114" parent="14" name="model">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="115" parent="14" name="capacity">
         <mandatory>1</mandatory>
@@ -464,7 +464,7 @@ model</columns>
       </column>
       <column id="116" parent="14" name="pd_type">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="117" parent="14" name="server_obj_id">
         <mandatory>1</mandatory>
@@ -489,7 +489,7 @@ model</columns>
       </column>
       <column id="121" parent="15" name="title">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(16)(0,-1)|12</data-type>
+        <data-type>VARCHAR(16) (0,-1)|12</data-type>
       </column>
       <column id="122" parent="15" name="content">
         <mandatory>1</mandatory>
@@ -521,7 +521,7 @@ model</columns>
       </column>
       <column id="128" parent="16" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="129" parent="16" name="floor">
         <mandatory>1</mandatory>
@@ -537,23 +537,23 @@ model</columns>
       </column>
       <column id="132" parent="17" name="slot">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="133" parent="17" name="manufacturer">
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="134" parent="17" name="model">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(64)(0,-1)|12</data-type>
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
       </column>
       <column id="135" parent="17" name="capacity">
         <data-type>REAL(0,-1)|6</data-type>
       </column>
       <column id="136" parent="17" name="sn">
-        <data-type>VARCHAR(64)(0,-1)|12</data-type>
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
       </column>
       <column id="137" parent="17" name="speed">
-        <data-type>VARCHAR(16)(0,-1)|12</data-type>
+        <data-type>VARCHAR(16) (0,-1)|12</data-type>
       </column>
       <column id="138" parent="17" name="server_obj_id">
         <mandatory>1</mandatory>
@@ -578,19 +578,19 @@ model</columns>
       </column>
       <column id="142" parent="18" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(128)(0,-1)|12</data-type>
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
       </column>
       <column id="143" parent="18" name="hwaddr">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(64)(0,-1)|12</data-type>
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
       </column>
       <column id="144" parent="18" name="netmask">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(64)(0,-1)|12</data-type>
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
       </column>
       <column id="145" parent="18" name="ipaddrs">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(256)(0,-1)|12</data-type>
+        <data-type>VARCHAR(256) (0,-1)|12</data-type>
       </column>
       <column id="146" parent="18" name="up">
         <mandatory>1</mandatory>
@@ -619,26 +619,26 @@ model</columns>
       </column>
       <column id="151" parent="19" name="hostname">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(128)(0,-1)|12</data-type>
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
       </column>
       <column id="152" parent="19" name="sn">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(128)(0,-1)|12</data-type>
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
       </column>
       <column id="153" parent="19" name="manufacturer">
-        <data-type>VARCHAR(64)(0,-1)|12</data-type>
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
       </column>
       <column id="154" parent="19" name="model">
-        <data-type>VARCHAR(64)(0,-1)|12</data-type>
+        <data-type>VARCHAR(64) (0,-1)|12</data-type>
       </column>
       <column id="155" parent="19" name="manage_ip">
-        <data-type>CHAR(39)(0,-1)|12</data-type>
+        <data-type>CHAR(39) (0,-1)|12</data-type>
       </column>
       <column id="156" parent="19" name="os_platform">
-        <data-type>VARCHAR(16)(0,-1)|12</data-type>
+        <data-type>VARCHAR(16) (0,-1)|12</data-type>
       </column>
       <column id="157" parent="19" name="os_version">
-        <data-type>VARCHAR(128)(0,-1)|12</data-type>
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
       </column>
       <column id="158" parent="19" name="cpu_count">
         <data-type>INTEGER(0,-1)|4</data-type>
@@ -647,7 +647,7 @@ model</columns>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
       <column id="160" parent="19" name="cpu_model">
-        <data-type>VARCHAR(128)(0,-1)|12</data-type>
+        <data-type>VARCHAR(128) (0,-1)|12</data-type>
       </column>
       <column id="161" parent="19" name="create_at">
         <mandatory>1</mandatory>
@@ -661,10 +661,10 @@ model</columns>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
       <column id="164" parent="19" name="cabinet_num">
-        <data-type>VARCHAR(30)(0,-1)|12</data-type>
+        <data-type>VARCHAR(30) (0,-1)|12</data-type>
       </column>
       <column id="165" parent="19" name="cabinet_order">
-        <data-type>VARCHAR(30)(0,-1)|12</data-type>
+        <data-type>VARCHAR(30) (0,-1)|12</data-type>
       </column>
       <column id="166" parent="19" name="business_unit_id">
         <data-type>INTEGER(0,-1)|4</data-type>
@@ -791,7 +791,7 @@ tag_id</columns>
       </column>
       <column id="189" parent="22" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <index id="190" parent="22" name="sqlite_autoindex_repository_tag_1">
         <name-surrogate>1</name-surrogate>
@@ -809,7 +809,7 @@ tag_id</columns>
       </column>
       <column id="193" parent="23" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <index id="194" parent="23" name="sqlite_autoindex_repository_usergroup_1">
         <name-surrogate>1</name-surrogate>
@@ -867,19 +867,19 @@ userprofile_id</columns>
       </column>
       <column id="204" parent="25" name="name">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="205" parent="25" name="email">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(254)(0,-1)|12</data-type>
+        <data-type>VARCHAR(254) (0,-1)|12</data-type>
       </column>
       <column id="206" parent="25" name="phone">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <column id="207" parent="25" name="mobile">
         <mandatory>1</mandatory>
-        <data-type>VARCHAR(32)(0,-1)|12</data-type>
+        <data-type>VARCHAR(32) (0,-1)|12</data-type>
       </column>
       <key id="208" parent="25">
         <columns>id</columns>

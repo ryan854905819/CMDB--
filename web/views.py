@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from repository import models
 from django.http import JsonResponse
-
+from utils.page import Pagination
 # Create your views here.
 
 def server(request):
@@ -14,49 +14,56 @@ def server_json(request):
             'title': '选择',
             'display': True,
             'text': {'tpl': '<input type="checkbox" value="{nid}" />', 'kwargs': {'nid': '@id'}},
-            'attr':{'k':'v','edit':'true','od':'@id'},
+            'attr':{'class': 'c1','k':'v','edit':'true','od':'@id'},
         },
         {
             'q': 'id',
             'title': 'ID',
             'display': False,
             'text': {'tpl': '{a1}', 'kwargs': {'a1': '@id'}},
+            'attr': {'class': 'c1',},
         },
         {
             'q': 'hostname',
             'title': '主机名',
             'display': True,
             'text': {'tpl': '{a1}-{a2}', 'kwargs': {'a1': '@hostname', 'a2': '666'}},
+            'attr': {'class': 'c1',},
         },
         {
             'q': 'sn',
             'title': '序列号',
             'display': True,
             'text': {'tpl': '{a1}', 'kwargs': {'a1': '@sn'}},
+            'attr': {'class': 'c1',},
         },
         {
             'q': 'os_platform',
             'title': '系统',
             'display': True,
             'text': {'tpl': '{a1}', 'kwargs': {'a1': '@os_platform'}},
+            'attr': {'class': 'c1',},
         },
         {
             'q': 'os_version',
             'title': '系统版本',
             'display': True,
             'text': {'tpl': '{a1}', 'kwargs': {'a1': '@os_version'}},
+            'attr': {'class': 'c1',},
         },
         {
             'q': 'business_unit__name',
             'title': '业务线',
             'display': True,
             'text': {'tpl': '{a1}', 'kwargs': {'a1': '@business_unit__name'}},
+            'attr': {'class': 'c1',},
         },
         {
             'q': 'server_status_id',
             'title': '服务器状态',
             'display': True,
             'text': {'tpl': '{a1}', 'kwargs': {'a1': '@@status_choices'}},
+            'attr': {'class': 'c1',},
         },
         {
             'q': None,
@@ -72,14 +79,23 @@ def server_json(request):
         if item['q']:
             values.append(item['q'])
 
-    server_list = models.Server.objects.values(*values)
+    #获取当前的用户请求页码
+    current_page = request.GET.get('pageNum')
+
+    # 计算总显示数据条数
+    total_item_count = models.Server.objects.all().count()
+    # 创建页码对象
+    page_obj = Pagination(current_page, total_item_count)
+    # 当前页码显示列表
+    server_list = models.Server.objects.values(*values)[page_obj.start:page_obj.end]
 
     response = {
         'data_list':list(server_list),
         'table_config':table_config,
         'global_choices_dict':{
             'status_choices':models.Server.server_status_choices
-        }
+        },
+        'page_html':page_obj.page_html_js()
     }
     return JsonResponse(response)
 

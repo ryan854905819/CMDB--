@@ -38,13 +38,13 @@
     /*
     像后台获取数据
      */
-    function init() {
+    function init(pageNum) {
         $('#loading').removeClass('hide');
 
         $.ajax({
             url:requestUrl,
             type: 'GET',
-            data: {},
+            data: {'pageNum':pageNum},
             dataType: 'JSON',
             success:function (response) {
                 /* 处理choice */
@@ -61,6 +61,10 @@
                 initTableHead(response.table_config);
                 /* 处理数据 */
                 initTableBody(response.data_list,response.table_config);
+
+                 /* 处理分页 */
+                initPageHtml(response.page_html);
+
                 $('#loading').addClass('hide');
             },
             error:function () {
@@ -69,6 +73,11 @@
         })
 
 
+    }
+
+    function initPageHtml(page_html) {
+
+        $('#pagination').empty().append(page_html);
     }
 
     function initTableHead(table_config) {
@@ -140,6 +149,9 @@
 
          */
 
+        //不清空，每执行一次init()就会数据增加，因为是ajax请求，所以每次请求init前要把里面内容清空
+        $('#tBody').empty();
+
         $.each(data_list,function (k,row_dict) {
             // {'hostname':'xx', 'sn':'xx', 'os_platform':'xxx'},   //row_dict取到data_list里面每个字典，k是一个索引
             // {'hostname':'xx1', 'sn':'xx2', 'os_platform':'xxx2'},
@@ -159,21 +171,15 @@
             */
 
             $.each(table_config,function (kk,vv) {
-                var td = document.createElement('td');
-                var format_dict = {};  //用来存放text格式化好的数据
-                $.each(vv.attr,function (akk,avv) {
-                    if(avv[0] == "@") {
-                        var name = avv.substring(1,avv.length);
-                         avv= row_dict[name];
-                    }
-                    td.setAttribute(akk,avv);
-                });
+
                 if (vv.display) {
-                        // var td = document.createElement('td');
+                        var td = document.createElement('td');
                         // td.innerHTML = row_dict[vv.q];   //vv.q // None,hostname,sn,os_platform
-                        // var format_dict = {};  //用来存放格式化好的数据
+                        var format_dict = {};  //用来存放格式化好的数据
                         //vv.text.kwargs    就是这种字典{'nid': '@id'} ，kkk那的字典key，vvv拿字典的值
-                        $.each(vv.text.kwargs, function (kkk, vvv) {
+
+                    /* 处理Td内容 */
+                    $.each(vv.text.kwargs, function (kkk, vvv) {
                             if(vvv.substring(0,2) == "@@"){
                                 var name = vvv.substring(2,vvv.length); // status_choices
                                 var val = getChoiceNameByid(name,row_dict[vv.q]);
@@ -191,8 +197,19 @@
 
                         });
 
-                        //字符串进行格式化，把里面{xxx}占位符全部替换成出来，并且赋值给td标签
+                    //字符串进行格式化，把里面{xxx}占位符全部替换成出来，并且赋值给td标签
                         td.innerHTML = vv.text.tpl.format(format_dict);
+
+                    /* 处理Td属性 */
+                    /*
+                     'attr':{'class': 'c1','k':'v','edit':'true','od':'@id'},
+                     */
+                    $.each(vv.attr,function (attrName,attrVal) {
+                        if(attrVal[0] == '@'){
+                            attrVal = row_dict[attrVal.substring(1,attrVal.length)];
+                        }
+                        td.setAttribute(attrName,attrVal);
+                    });
                         $(tr).append(td);
                 }
             });
@@ -206,7 +223,10 @@
     jq.extend({
         "nBList":function (url) {
             requestUrl = url;
-            init();
+            init(1);
+        },
+        "changePage":function (pageNum) {
+            init(pageNum);
         }
     });
 

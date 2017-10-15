@@ -40,11 +40,12 @@
      */
     function init(pageNum) {
         $('#loading').removeClass('hide');
-
+        var condition = getSearchCondition();
+        console.log(condition);
         $.ajax({
             url:requestUrl,
             type: 'GET',
-            data: {'pageNum':pageNum},
+            data: {'pageNum':pageNum,'condition':JSON.stringify(condition)},
             dataType: 'JSON',
             success:function (response) {
                 /* 处理choice */
@@ -56,6 +57,8 @@
 
                 GLOBAL_CHOICES_DICT = response.global_choices_dict;
 
+                 /* 处理搜索条件 */
+                initSearchCondition(response.search_config);
 
                 /* 处理表头 */
                 initTableHead(response.table_config);
@@ -73,6 +76,146 @@
         })
 
 
+    }
+
+     /*
+    绑定搜索条件事件
+     */
+    function bindSearchConditionEvent(){
+
+        /* 改变下拉框内容时*/
+        $('#searchCondition').on('click','li',function () {
+            // $(this) = li标签
+
+            // 找到label文本修改
+            $(this).parent().prev().prev().text($(this).text());
+
+            // 找input标签，修改，重建
+            $(this).parent().parent().next().remove();
+
+            var name = $(this).find('a').attr('name');
+            var type = $(this).find('a').attr('type');
+            if(type=='select'){
+                var choice_name = $(this).find('a').attr('choice_name');
+
+                // 生成下拉框，
+                var tag = document.createElement('select');
+                tag.className = "form-control no-radius";
+                tag.setAttribute('name',name);
+                $.each(GLOBAL_CHOICES_DICT[choice_name],function(i,item){
+                    var op = document.createElement('option');
+                    op.innerHTML = item[1];
+                    op.setAttribute('value',item[0]);
+                    $(tag).append(op);
+                })
+            }else{
+                // <input class="form-control no-radius" placeholder="逗号分割多条件" name="hostnmae">
+                var tag = document.createElement('input');
+                tag.setAttribute('type','text');
+                // $(tag).addClass('form-control no-radius')
+                tag.className = "form-control no-radius";
+                tag.setAttribute('placeholder','请输入条件');
+                tag.setAttribute('name',name);
+            }
+
+            $(this).parent().parent().after(tag);
+
+        });
+         /* 添加搜索条件 */
+        $('#searchCondition .add-condition').click(function () {
+
+            var $condition = $(this).parent().parent().clone();
+            $condition.find('.add-condition').removeClass('add-condition').addClass('del-condition').find('i').attr('class','fa fa-minus-square');
+
+            // $(this).parent().parent().parent().append($condition);
+            // $('#searchCondition').append($condition);
+            $condition.appendTo($('#searchCondition'));
+        });
+
+        /* 删除搜索条件 */
+        $('#searchCondition').on('click','.del-condition',function () {
+            $(this).parent().parent().remove();
+        });
+
+         /* 点击搜索按钮 */
+        $('#doSearch').click(function () {
+            init(1);
+        })
+     }
+
+    function initSearchCondition(searchConfig){
+        //加上这个判断是为防止多次初始化，所以只要做一次初始化搜索条件后，页面切换条件不变
+        if(!$('#searchCondition').attr('init')){
+            var $ul = $('#searchCondition :first').find('ul');
+            $ul.empty();
+
+            //初始化默认搜索条件
+            initDefaultSearchCondition(searchConfig[0]);
+            $.each(searchConfig,function (i,item) {
+                var li = document.createElement('li');
+                var a =  document.createElement('a');
+                a.innerHTML = item.title;
+                a.setAttribute('name',item.name);
+                a.setAttribute('type',item.type);
+                if(item.type == 'select'){
+                    a.setAttribute('choice_name',item.choice_name);
+                }
+                $(li).append(a);
+                $ul.append(li);
+            });
+
+            $('#searchCondition').attr('init','true');
+        }
+
+    }
+
+    //初始化搜索框
+    function initDefaultSearchCondition(item) {
+        // item={'name': 'hostname','title':'主机名','type':'input'},
+        if(item.type == 'input'){
+            var tag = document.createElement('input');
+            tag.setAttribute('type','text');
+            // $(tag).addClass('form-control no-radius')
+            tag.className = "form-control no-radius";
+            tag.setAttribute('placeholder','请输入条件');
+            tag.setAttribute('name',item.name);
+
+        }else{
+            var tag = document.createElement('select');
+            tag.className = "form-control no-radius";
+            tag.setAttribute('name',item.name);
+            $.each(GLOBAL_CHOICES_DICT[item.choice_name],function(i,row){
+                var op = document.createElement('option');
+                op.innerHTML = row[1];
+                op.setAttribute('value',row[0]);
+                $(tag).append(op);
+            })
+        }
+
+        $('#searchCondition').find('.input-group').append(tag);
+        $('#searchCondition').find('.input-group label').text(item.title);
+    }
+
+    function getSearchCondition() {
+        // 找所有input,select
+        // 作业：result数据格式为：
+        /*
+             {
+                server_status_id: [1,2],
+                hostname: ['c1.com','c2.com']
+            }
+         */
+        var result = {};
+        $('#searchCondition').find('input[type="text"],select').each(function(){
+            var name = $(this).attr('name');
+            var val = $(this).val();
+            if(result[name]){
+                result[name].push(val);
+            }else{
+                result[name] = [val ];
+            }
+        });
+        return result;
     }
 
     function initPageHtml(page_html) {
@@ -224,7 +367,11 @@
         "nBList":function (url) {
             requestUrl = url;
             init(1);
+            //一加载就绑定搜索条件事件
+            bindSearchConditionEvent();
+
         },
+
         "changePage":function (pageNum) {
             init(pageNum);
         }

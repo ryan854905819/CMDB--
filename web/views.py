@@ -2,12 +2,22 @@ from django.shortcuts import render
 from repository import models
 from django.http import JsonResponse
 from utils.page import Pagination
+import json
 # Create your views here.
 
 def server(request):
     return render(request,'server.html')
 
 def server_json(request):
+
+    search_config = [
+
+        {'name': 'hostname__contains', 'title': '主机名', 'type': 'input'},
+        {'name': 'cabinet_num', 'title': "机柜号", 'type': 'input'},
+        {'name': 'server_status_id', 'title': '服务器状态', 'type': 'select', 'choice_name': 'status_choices'},
+
+    ]
+
     table_config = [
         {
             'q': None,
@@ -79,15 +89,33 @@ def server_json(request):
         if item['q']:
             values.append(item['q'])
 
+    # 获取搜索条件
+    condition_dict = json.loads(request.GET.get('condition'))
+    """
+        {
+            server_status_id: [1,2],
+            hostname: ['c1.com','c2.com']
+        }
+        """
+    from django.db.models import Q
+    con = Q()
+    #k server_status_id or hostname
+    for k,v in condition_dict.items():
+        temp = Q()
+        temp.connector = 'OR'
+        for item in v:
+            temp.children.append((k, item,))
+        con.add(temp,'AND')
+
     #获取当前的用户请求页码
     current_page = request.GET.get('pageNum')
 
     # 计算总显示数据条数
-    total_item_count = models.Server.objects.all().count()
+    total_item_count = models.Server.objects.filter(con).count()
     # 创建页码对象
-    page_obj = Pagination(current_page, total_item_count)
+    page_obj = Pagination(current_page,total_item_count,per_page_count=2)
     # 当前页码显示列表
-    server_list = models.Server.objects.values(*values)[page_obj.start:page_obj.end]
+    server_list = models.Server.objects.filter(con).values(*values)[page_obj.start:page_obj.end]
 
     response = {
         'data_list':list(server_list),
@@ -95,7 +123,8 @@ def server_json(request):
         'global_choices_dict':{
             'status_choices':models.Server.server_status_choices
         },
-        'page_html':page_obj.page_html_js()
+        'page_html':page_obj.page_html_js(),
+        'search_config': search_config,
     }
     return JsonResponse(response)
 

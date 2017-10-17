@@ -12,7 +12,7 @@ import hashlib
 import time
 #按自己思路写
 # @csrf_exempt
-# def server(request):
+# def service(request):
 #     server_dict = json.loads(request.body.decode('utf-8'))
 #     # print(type(server_dict),server_dict)
 #     # 1. 检查server表中是否有当前资产信息【主机名是唯一标识】

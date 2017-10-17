@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="277eb646-e0e5-4f85-95d7-bf9e89bc0706" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.cookie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/service/base.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/service/disk.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/service/server.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/table_config/disk.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/table_config/server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/nb-list.js" afterPath="$PROJECT_DIR$/static/js/nb-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/server.html" afterPath="$PROJECT_DIR$/templates/server.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/urls.py" afterPath="$PROJECT_DIR$/api/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/repository/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/repository/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/jquery-3.2.1.js" afterPath="$PROJECT_DIR$/static/js/jquery-3.2.1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/disk.html" afterPath="$PROJECT_DIR$/templates/disk.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/views.py" afterPath="$PROJECT_DIR$/web/views.py" />
     </list>
     <ignored path="auto_server.iws" />
@@ -42,8 +49,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="125">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -54,17 +61,91 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+            <state relative-caret-position="200">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
-                <element signature="e#335#606#0" expanded="false" />
-                <element signature="e#3254#3318#0" expanded="false" />
-                <element signature="e#4238#4547#0" expanded="false" />
-                <element signature="e#5909#5943#0" expanded="false" />
-                <element signature="e#5973#7590#0" expanded="false" />
-                <element signature="e#7619#7849#0" expanded="false" />
-                <element signature="e#7874#8813#0" expanded="false" />
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#997#1227#0" expanded="false" />
+                <element signature="e#1252#2191#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="disk.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/disk.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="105" column="54" selection-start-line="105" selection-start-column="54" selection-end-line="105" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="disk.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/service/disk.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="975">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="disk.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/table_config/disk.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/service/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+              <folding>
+                <element signature="e#43#792#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/service/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#393#1200#0" expanded="false" />
+                <marker date="1508239656226" expanded="true" signature="191:2381" ph="..." />
+                <marker date="1508239656226" expanded="true" signature="223:362" ph="..." />
+                <marker date="1508239656226" expanded="false" signature="1223:1885" ph="..." />
+                <marker date="1508239656226" expanded="false" signature="1906:2381" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/table_config/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="13" />
+              <folding>
+                <element signature="e#18#257#0" expanded="false" />
+                <marker date="1508237532983" expanded="false" signature="275:2366" ph="..." />
+                <marker date="1508237532983" expanded="true" signature="281:504" ph="..." />
+                <marker date="1508237532983" expanded="true" signature="685:920" ph="..." />
+                <marker date="1508237532983" expanded="true" signature="928:1139" ph="..." />
+                <marker date="1508237532983" expanded="true" signature="1147:1393" ph="..." />
+                <marker date="1508237532983" expanded="true" signature="1796:2136" ph="..." />
               </folding>
             </state>
           </provider>
@@ -95,65 +176,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nb-list.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/nb-list.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="615" column="36" selection-start-line="615" selection-start-column="36" selection-end-line="615" selection-end-column="36" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#313#441#0" expanded="false" />
-                <element signature="e#459#695#0" expanded="false" />
-                <element signature="e#747#1005#0" expanded="false" />
-                <element signature="e#1053#1159#0" expanded="false" />
-                <element signature="e#1166#1188#0" expanded="false" />
-                <element signature="e#1216#2341#0" expanded="false" />
-                <element signature="e#2411#4685#0" expanded="false" />
-                <element signature="e#2494#3927#0" expanded="false" />
-                <element signature="e#4015#4422#0" expanded="false" />
-                <element signature="e#4517#4576#0" expanded="false" />
-                <element signature="e#4739#5596#0" expanded="false" />
-                <element signature="e#5061#5521#0" expanded="false" />
-                <element signature="e#5657#6672#0" expanded="false" />
-                <element signature="e#6708#7273#0" expanded="false" />
-                <element signature="e#7312#7372#0" expanded="false" />
-                <element signature="e#7415#8414#0" expanded="false" />
-                <element signature="e#7425#7805#0" expanded="false" />
-                <element signature="e#8467#11949#0" expanded="false" />
-                <element signature="e#10338#11216#0" expanded="false" />
-                <element signature="e#11997#13538#0" expanded="false" />
-                <element signature="e#12386#12537#0" expanded="false" />
-                <element signature="e#13584#14377#0" expanded="false" />
-                <element signature="e#14508#15178#0" expanded="false" />
-                <element signature="e#15237#15748#0" expanded="false" />
-                <element signature="e#15809#16151#0" expanded="false" />
-                <element signature="e#16213#16931#0" expanded="false" />
-                <element signature="e#16989#17862#0" expanded="false" />
-                <element signature="e#20231#20749#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/repository/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="103" column="18" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="18" />
-              <folding>
-                <element signature="e#2#30#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -174,13 +203,19 @@
         <option value="$PROJECT_DIR$/repository/models.py" />
         <option value="$PROJECT_DIR$/auto_server/urls.py" />
         <option value="$PROJECT_DIR$/auto_server/settings.py" />
-        <option value="$PROJECT_DIR$/templates/disk.html" />
-        <option value="$PROJECT_DIR$/web/urls.py" />
         <option value="$PROJECT_DIR$/templates/tset.html" />
         <option value="$PROJECT_DIR$/templates/test.html" />
         <option value="$PROJECT_DIR$/utils/page.py" />
         <option value="$PROJECT_DIR$/templates/server.html" />
         <option value="$PROJECT_DIR$/static/js/nb-list.js" />
+        <option value="$PROJECT_DIR$/web/table_config/server.py" />
+        <option value="$PROJECT_DIR$/web/server/server.py" />
+        <option value="$PROJECT_DIR$/web/service/server.py" />
+        <option value="$PROJECT_DIR$/web/urls.py" />
+        <option value="$PROJECT_DIR$/web/service/base.py" />
+        <option value="$PROJECT_DIR$/web/service/disk.py" />
+        <option value="$PROJECT_DIR$/templates/disk.html" />
+        <option value="$PROJECT_DIR$/web/table_config/disk.py" />
         <option value="$PROJECT_DIR$/web/views.py" />
       </list>
     </option>
@@ -252,7 +287,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="table_config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,92 +341,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repository" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../auto_server课堂封装代码" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\py_code\py_s5\django\auto_server\static\js" />
-      <recent name="E:\py_code\py_s5\django\auto_server\static\plugins" />
-      <recent name="E:\py_code\py_s5\django\auto_server\templates" />
-      <recent name="E:\py_code\py_s5\django\auto_server" />
-      <recent name="E:\py_code\py_s5\django\auto_server\static\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\py_code\py_s5\django\auto_server\static\plugins" />
       <recent name="E:\py_code\py_s5\django\auto_server\static\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\py_code\py_s5\django\auto_server\templates" />
+      <recent name="E:\py_code\py_s5\django\auto_server\web\table_config" />
+      <recent name="E:\py_code\py_s5\django\auto_server\web\service" />
+      <recent name="E:\py_code\py_s5\django\auto_server\static\js" />
+      <recent name="E:\py_code\py_s5\django\auto_server\static\plugins" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.auto_server">
@@ -642,9 +649,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39265212" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59275365" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288719" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -655,7 +663,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="manage.py@auto_server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7012263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -672,47 +679,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/plugins/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auto_server/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3100">
-          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/plugins/disk.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/52ec3cd6/907b3222-ec75-4a62-90af-5df4a78f77c7/repository_disk" />
     <entry file="file://$PROJECT_DIR$/repository/models.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -891,13 +862,6 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/52ec3cd6/907b3222-ec75-4a62-90af-5df4a78f77c7/repository_server" />
-    <entry file="file://$PROJECT_DIR$/templates/disk.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/52ec3cd6/907b3222-ec75-4a62-90af-5df4a78f77c7/repository_disk" />
     <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -964,29 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="24" column="80" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="80" />
-          <folding>
-            <element signature="e#1413#1504#0" expanded="false" />
-            <element signature="e#1547#1635#0" expanded="false" />
-            <element signature="e#1670#3392#0" expanded="false" />
-            <element signature="e#5116#6688#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/repository/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -994,14 +935,6 @@
           <folding>
             <element signature="e#2#30#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/server.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1043,19 +976,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/server.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="24" column="80" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="80" />
+          <folding>
+            <element signature="e#1413#1504#0" expanded="false" />
+            <element signature="e#1547#1635#0" expanded="false" />
+            <element signature="e#1670#3392#0" expanded="false" />
+            <element signature="e#5116#6688#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/table_config/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#18#257#0" expanded="false" />
+            <marker date="1508237532983" expanded="false" signature="275:2366" ph="..." />
+            <marker date="1508237532983" expanded="true" signature="281:504" ph="..." />
+            <marker date="1508237532983" expanded="true" signature="685:920" ph="..." />
+            <marker date="1508237532983" expanded="true" signature="928:1139" ph="..." />
+            <marker date="1508237532983" expanded="true" signature="1147:1393" ph="..." />
+            <marker date="1508237532983" expanded="true" signature="1796:2136" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/service/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#393#1200#0" expanded="false" />
+            <marker date="1508239656226" expanded="true" signature="191:2381" ph="..." />
+            <marker date="1508239656226" expanded="true" signature="223:362" ph="..." />
+            <marker date="1508239656226" expanded="false" signature="1223:1885" ph="..." />
+            <marker date="1508239656226" expanded="false" signature="1906:2381" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/service/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding>
+            <element signature="e#43#792#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/service/disk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/table_config/disk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/disk.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="105" column="54" selection-start-line="105" selection-start-column="54" selection-end-line="105" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="200">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
-            <element signature="e#335#606#0" expanded="false" />
-            <element signature="e#3254#3318#0" expanded="false" />
-            <element signature="e#4238#4547#0" expanded="false" />
-            <element signature="e#5909#5943#0" expanded="false" />
-            <element signature="e#5973#7590#0" expanded="false" />
-            <element signature="e#7619#7849#0" expanded="false" />
-            <element signature="e#7874#8813#0" expanded="false" />
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#997#1227#0" expanded="false" />
+            <element signature="e#1252#2191#0" expanded="false" />
           </folding>
         </state>
       </provider>

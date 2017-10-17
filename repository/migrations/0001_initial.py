@@ -183,7 +183,7 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='ar', to='repository.Server'),
         ),
         migrations.AddField(
-            model_name='server',
+            model_name='service',
             name='tags',
             field=models.ManyToManyField(to='repository.Tag'),
         ),

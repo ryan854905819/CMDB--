@@ -17,6 +17,20 @@
         // 'status_choices': [[0,'xxx'],]
         // 'xxxx_choices': [[0,'xxx'],]
     };
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            // 请求头中设置一次csrf-token
+            if(!csrfSafeMethod(settings.type)){
+                xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+            }
+        }
+    });
+
 
     function getChoiceNameByid(choice_name,id) {
         var val;
@@ -140,8 +154,10 @@
          /* 点击搜索按钮 */
         $('#doSearch').click(function () {
             init(1);
-        })
+        });
+
      }
+     
 
     function initSearchCondition(searchConfig){
         //加上这个判断是为防止多次初始化，所以只要做一次初始化搜索条件后，页面切换条件不变
@@ -363,12 +379,321 @@
 
     }
 
+
+    /* 进入编辑模式 */
+    function trIntoEdit($tr){
+        $tr.addClass('success');
+        $tr.find('td[edit="true"]').each(function () {
+            // $(this),需要进入编辑模式的td标签
+
+            if($(this).attr('edit-type') == 'select' ){
+                // select
+                var choiceKey = $(this).attr('choice-key');
+                var origin = $(this).attr('origin');
+                // GLOBAL_CHOICES_DICT[choiceKey]
+                /*
+                [
+                    [1,'xxx'],
+                    [2,'xxx'],
+                    [3,'xxx'],
+                ]
+                 */
+                var tag = document.createElement('select');
+                //添加一个样式
+                tag.className = "form-control";
+                $.each(GLOBAL_CHOICES_DICT[choiceKey],function (k,value) {
+                    var op = document.createElement('option');
+                    op.innerHTML = value[1];
+                    op.value = value[0];
+                    //取到默认值
+                    if(value[0] == origin){
+                        //把默认值设置为选中状态
+                        op.setAttribute('selected','selected');
+                    }
+                    tag.appendChild(op);
+                    // $(tag).append(op);
+                });
+
+            }else {
+                // input
+                var text = $(this).text();
+                var tag = document.createElement('input');
+                tag.setAttribute('type','text');
+                tag.className = "form-control";
+                tag.value = text;
+
+            }
+            $(this).html(tag);
+        })
+
+
+
+    }
+
+    /* 退出编辑模式 */
+    function trOutEdit($tr){
+        $tr.removeClass('success');
+        $tr.find('td[edit="true"]').each(function () {
+            // $(this) 每一个td
+            var origin = $(this).attr('origin');
+            if($(this).attr('edit-type') == 'select'){
+
+                var val = $(this).find('select').val();
+                // var text = $(this).find('select')[0].selectedOptions[0].innerText;
+                var text = $(this).find('select option[value="'+ val +'"]').text();
+                $(this).attr('new-value',val);
+                $(this).html(text);
+            }else {
+                var val = $(this).find('input').val();
+                $(this).html(val);
+            }
+            //判断值是否改动
+            if(origin != val){
+                 $tr.attr('edit-status','true');
+        }
+
+
+
+
+        });
+    }
+
+    /*
+    按钮组绑定事件
+     */
+    function bindBtnGroupEvent(){
+        // 进入和退出编辑模式
+        $('#editModeStatus').click(function () {
+            if($(this).hasClass('btn-warning')){
+                // 要退出编辑模式
+                $(this).removeClass('btn-warning');
+                $(this).text('进入编辑模式');
+                $('#tBody :checked').each(function () {
+                    var $tr = $(this).parent().parent();
+                    trOutEdit($tr);
+                });
+
+            }else {
+                // 要进入编辑模式
+                $(this).addClass('btn-warning');
+                $(this).text('退出编辑模式');
+                $('#tBody :checked').each(function () {
+                    var $tr = $(this).parent().parent();
+                    trIntoEdit($tr);
+                });
+
+            }
+        });
+
+        // 全选
+        $('#checkAll').click(function () {
+            // $('#tBody :checked')
+            $('#tBody :checkbox').each(function () {
+                if(!$(this).prop('checked')) {
+                    // 选中值不能再操作，不然在选中状态下在点全选，就会有BUG
+                    $(this).prop('checked', 'true');
+                    // 进入编辑模式
+                    if($('#editModeStatus').hasClass('btn-warning')){
+                        var $tr = $(this).parent().parent();
+                        trIntoEdit($tr);
+                    }
+                }
+            });
+
+        });
+
+        //取消
+        $('#checkCancel').click(function () {
+            $('#tBody :checked').each(function () {
+                // $(this),已经选中checkbox
+                $(this).prop('checked',false);
+                if($('#editModeStatus').hasClass('btn-warning')){
+                    var $tr = $(this).parent().parent();
+                    trOutEdit($tr);
+                }
+            })
+        });
+
+        //反选
+        $('#checkReverse').click(function () {
+            $('#tBody :checkbox').each(function () {
+                 if($(this).prop('checked')){
+                        //选中
+                     $(this).prop('checked',false);
+                     // 退出编辑模式
+                     if($('#editModeStatus').hasClass('btn-warning')){
+                        var $tr = $(this).parent().parent();
+                        trOutEdit($tr);
+                }
+                 }else {
+                     $(this).prop('checked',true);
+                     if($('#editModeStatus').hasClass('btn-warning')){
+                        var $tr = $(this).parent().parent();
+                        trIntoEdit($tr);
+                    }
+
+                 }
+            })
+        });
+
+        //删除
+        $('#delMulti').click(function () {
+            // 显示模态对话框
+            // 给确定按钮绑定事件
+            var ids =[];
+            $('#tBody :checked').each(function () {
+                ids.push($(this).val());
+            });
+             $.ajax({
+                url: requestUrl,
+                type: 'delete',
+                data: JSON.stringify(ids),
+                traditional:true,
+                dataType: 'JSON',
+                success:function (arg) {
+                    if(arg.status){
+                        // 显示正确信息
+                        $('#handleStatus').text('执行成功');
+                        setTimeout(function () {
+                            $('#handleStatus').empty();
+                        },5000);
+                    }else{
+                        // 显示错误信息
+                        $('#handleStatus').text(arg.msg);
+
+                    }
+                }
+            })
+
+        });
+
+        // 保存
+        $('#saveMulti').click(function () {
+            if($('#editModeStatus').hasClass('btn-warning')){
+                $('#tBody :checked').each(function () {
+                    var $tr = $(this).parent().parent();
+                    trOutEdit($tr);
+                    $('#editModeStatus').removeClass('btn-warning');
+                    $('#editModeStatus').text('进入编辑模式');
+                });
+
+            }
+
+            var update_dict = [
+                // {'nid':1, 'hostname': 'c1.com'},
+                // {'nid':2, 'hostname': 'c1.com'},
+                // {'nid':3, 'hostname': 'c1.com'},
+                // {'nid':4, 'hostname': 'c1.com'},
+            ];
+            $('#tBody tr[edit-status="true"]').each(function () {
+                // $(this) 是每一个tr标签
+                var tmp = {};
+                tmp['nid'] = $(this).children().first().attr('nid');
+                $(this).children('[edit="true"]').each(function () {
+                    // $(this),是td
+                    var origin = $(this).attr('origin');
+                    var name =  $(this).attr('name');
+                    if($(this).attr('edit-type') == 'select'){
+                        var newVal = $(this).attr('new-value');
+                    }else {
+                        var newVal = $(this).text();
+                    }
+                    if(origin != newVal){
+                        tmp[name] = newVal;
+                    }
+                });
+                 update_dict.push(tmp);
+            });
+            // console.log(update_dict);
+             // 通过Ajax提交后台
+            $.ajax({
+                url:requestUrl,
+                type:'PUT',
+                data:JSON.stringify(update_dict),
+                dataType: 'JSON',
+                success:function (arg) {
+                    console.log(arg);
+                     if(arg.status){
+                        // 显示正确信息
+                        $('#handleStatus').text('保存成功');
+                        setTimeout(function () {
+                            $('#handleStatus').empty();
+                        },5000);
+                    }else{
+                        // 显示错误信息
+                        $('#handleStatus').text(arg.msg);
+
+                    }
+
+                }
+            });
+
+        });
+
+
+    }
+
+
+    /*
+    单独checkbox编辑模式绑定事件
+     */
+    function bindEditModeEvent() {
+         /* checkbox 绑定事件*/
+        $('#tBody').on('click',':checkbox',function () {
+            // $(this) // checkbox标签
+            // 1. 检测是否已经被选中
+            if($('#editModeStatus').hasClass('btn-warning')){
+                var $tr = $(this).parent().parent();
+                if($(this).prop('checked')){
+                    // 进入编辑模式
+                    trIntoEdit($tr);
+                }else{
+                    // 退出编辑模式
+                    trOutEdit($tr);
+                }
+            }
+
+        });
+    }
+
+    ctrStatus = false;
+    window.onkeydown = function (event) {
+        if(event && event.keyCode == 17){
+            ctrStatus = true;
+        }
+    };
+    window.onkeyup = function (event) {
+        if(event && event.keyCode ==17){
+            ctrStatus = false;
+        }
+    };
+
+    /* 给表格中的下拉框绑定chang事件 */
+    function bindSelectChangeEvent(){
+        $('#tBody').on('change','select',function () {
+            if(ctrStatus){
+                var v = $(this).val();
+                var $tr = $(this).parent().parent();
+                var index = $(this).parent().index();
+                $tr.nextAll().each(function () {
+                    if($(this).find(':checkbox').prop('checked')){
+                        $(this).children().eq(index).children().val(v);
+                    }
+                })
+            }
+        })
+    }
+
+
     jq.extend({
         "nBList":function (url) {
             requestUrl = url;
             init(1);
             //一加载就绑定搜索条件事件
             bindSearchConditionEvent();
+            bindEditModeEvent();
+            bindBtnGroupEvent();
+            bindSelectChangeEvent();
 
         },
 

@@ -56,6 +56,7 @@
 </head>
 <body>
 <div class="container">
+    <div id="handleStatus" style="position: fixed;z-index: 9998;width: 500px;left:50%;margin-left:-250px;text-align: center;"></div>
     <h1>服务器列表</h1>
     <!-- 组合搜索开始 -->
     <div class="search-area clearfix">
@@ -93,6 +94,18 @@
 
     <!-- 组合搜索结束 -->
 
+   <!-- 功能按钮开始 -->
+
+    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+      <a id="checkAll" class="btn btn-default">全选</a>
+      <a id="checkCancel" class="btn btn-default">取消</a>
+      <a id="checkReverse" class="btn btn-default">反选</a>
+      <a class="btn btn-default">添加</a>
+      <a id='delMulti' class="btn btn-default">删除</a>
+      <a id='saveMulti' class="btn btn-default">保存</a>
+      <a id="editModeStatus" class="btn btn-default">进入编辑模式</a>
+    </div>
+    <!-- 功能按钮结束 -->
 
     <!-- 数据开始 -->
     <table class="table table-bordered">
@@ -117,6 +130,7 @@
 </div>
 
 <script src="/static/js/jquery-3.2.1.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
 <script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
 <script src="/static/js/nb-list.js"></script>
 <script>
